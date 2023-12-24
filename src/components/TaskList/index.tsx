@@ -1,7 +1,19 @@
+import TaskItem from "./TaskItem";
+
 import styles from "./styles.module.css";
 
-function TaskList() {
-    return <div></div>;
+interface TaskListProps {
+    tasks: Task[];
+}
+
+function TaskList({ tasks }: TaskListProps) {
+    return (
+        <div>
+            {tasks.map((task) => (
+                <TaskItem task={task} key={task.id} />
+            ))}
+        </div>
+    );
 }
 
 export default TaskList;
