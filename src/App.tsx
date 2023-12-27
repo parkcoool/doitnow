@@ -1,7 +1,7 @@
 import TaskList from "./components/TaskList";
 import Calendar from "./components/Calendar";
 
-import useTask from "./contexts/useTask";
+import useTask from "./hooks/useTask";
 
 function App() {
     const { tasks } = useTask((state) => state);
