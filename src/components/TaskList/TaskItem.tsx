@@ -1,3 +1,6 @@
+import { useState } from "react";
+import Menu from "./Menu";
+
 import styles from "./styles.module.css";
 import dotsIcon from "../../assets/horizontal_dots.svg";
 
@@ -19,6 +22,12 @@ function elapsedTime(date: string) {
 }
 
 function TaskItem({ task }: TaskItemProps) {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    function handleClick() {
+        setIsMenuOpen(!isMenuOpen);
+    }
+
     return (
         <div className={`${styles.task} ${task.done && styles.done}`}>
             <div className={styles.left}>
@@ -30,8 +39,9 @@ function TaskItem({ task }: TaskItemProps) {
             </div>
             <div className={styles.right}>
                 <button className={styles.imgButton}>
-                    <img src={dotsIcon} alt="edit"></img>
+                    <img src={dotsIcon} alt="더보기" onClick={handleClick}></img>
                 </button>
+                {isMenuOpen && <Menu task={task} />}
             </div>
         </div>
     );
