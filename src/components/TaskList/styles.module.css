@@ -12,19 +12,25 @@
 .task .left {
     display: flex;
     flex-direction: row;
-    gap: 16px;
+    gap: 8px;
+    width: 100%;
+    overflow: hidden;
 }
 
-.task .done {
+.task .icon {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 8px;
+    font-size: 18px;
 }
 
 .task .info {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    width: 100%;
+    overflow: hidden;
 }
 
 .task .info > h1 {
@@ -32,6 +38,9 @@
     font-family: Pretendard;
     font-weight: normal;
     font-size: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .task .info > h2 {
