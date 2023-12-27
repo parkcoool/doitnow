@@ -1,3 +1,33 @@
 .task {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+}
+
+.task > .done {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task > .info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.task > .info > h1 {
+    margin: 0;
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+
+.task > .info > h2 {
+    margin: 0;
+    font-weight: normal;
+    font-size: 1rem;
 }
