@@ -1,6 +1,5 @@
 import styles from "./styles.module.css";
-import editIcon from "../../assets/edit.svg";
-import deleteIcon from "../../assets/delete.svg";
+import dotsIcon from "../../assets/horizontal_dots.svg";
 
 interface TaskItemProps {
     task: Task;
@@ -29,12 +28,9 @@ function TaskItem({ task }: TaskItemProps) {
                     <h2>{elapsedTime(task.date)}</h2>
                 </div>
             </div>
-            <div className={styles.buttonContainer}>
+            <div className={styles.right}>
                 <button className={styles.imgButton}>
-                    <img src={editIcon} alt="edit"></img>
-                </button>
-                <button className={styles.imgButton}>
-                    <img src={deleteIcon} alt="delete"></img>
+                    <img src={dotsIcon} alt="edit"></img>
                 </button>
             </div>
         </div>
