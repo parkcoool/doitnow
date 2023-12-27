@@ -29,7 +29,7 @@ function TaskItem({ task }: TaskItemProps) {
     }
 
     return (
-        <div className={`${styles.task} ${task.done && styles.done}`}>
+        <div className={`${styles.task} ${task.done ? styles.done : ""}`} id={`task${task.id}`}>
             <div className={styles.left}>
                 <span className={styles.icon}>{task.icon}</span>
                 <div className={styles.info}>
@@ -41,7 +41,14 @@ function TaskItem({ task }: TaskItemProps) {
                 <button className={styles.imgButton}>
                     <img src={dotsIcon} alt="더보기" onClick={handleClick}></img>
                 </button>
-                {isMenuOpen && <Menu task={task} />}
+                {isMenuOpen && (
+                    <Menu
+                        task={task}
+                        closeMenu={() => {
+                            setIsMenuOpen(false);
+                        }}
+                    />
+                )}
             </div>
         </div>
     );
