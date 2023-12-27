@@ -21,7 +21,7 @@ function elapsedTime(date: string) {
 
 function TaskItem({ task }: TaskItemProps) {
     return (
-        <div className={styles.task}>
+        <div className={`${styles.task} ${task.done && styles.done}`}>
             <div className={styles.left}>
                 <span className={styles.icon}>{task.icon}</span>
                 <div className={styles.info}>

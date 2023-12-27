@@ -18,6 +18,11 @@
     background: rgba(0, 0, 0, 0.05);
 }
 
+.task.done {
+    color: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.2);
+}
+
 .task .left {
     display: flex;
     flex-direction: row;

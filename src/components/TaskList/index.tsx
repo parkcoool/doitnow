@@ -7,9 +7,20 @@ interface TaskListProps {
 }
 
 function TaskList({ tasks }: TaskListProps) {
+    const undoneTasks: Task[] = [];
+    const doneTasks: Task[] = [];
+
+    tasks.forEach((task) => {
+        if (task.done) doneTasks.push(task);
+        else undoneTasks.push(task);
+    });
+
     return (
         <div className={styles.taskContainer}>
-            {tasks.map((task) => (
+            {undoneTasks.map((task) => (
+                <TaskItem task={task} key={task.id} />
+            ))}
+            {doneTasks.map((task) => (
                 <TaskItem task={task} key={task.id} />
             ))}
         </div>

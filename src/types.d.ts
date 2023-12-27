@@ -3,4 +3,5 @@ interface Task {
     name: string;
     date: string;
     icon: string;
+    done?: boolean;
 }
