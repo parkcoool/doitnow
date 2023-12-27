@@ -1,3 +1,12 @@
+.taskContainer {
+    height: 50%;
+    min-height: 500px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 .task {
     display: flex;
     flex-direction: row;

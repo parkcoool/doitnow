@@ -8,7 +8,7 @@ interface TaskListProps {
 
 function TaskList({ tasks }: TaskListProps) {
     return (
-        <div>
+        <div className={styles.taskContainer}>
             {tasks.map((task) => (
                 <TaskItem task={task} key={task.id} />
             ))}
