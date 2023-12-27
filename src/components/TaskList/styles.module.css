@@ -2,34 +2,66 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 1rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ccc;
+    justify-content: space-between;
+    padding: 12px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.05);
 }
 
-.task > .done {
+.task .left {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.task .done {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.task > .info {
+.task .info {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 4px;
 }
 
-.task > .info > h1 {
+.task .info > h1 {
     margin: 0;
     font-family: Pretendard;
     font-weight: normal;
-    font-size: 1.5rem;
+    font-size: 24px;
 }
 
-.task > .info > h2 {
+.task .info > h2 {
     margin: 0;
     font-family: Pretendard;
     font-weight: normal;
-    font-size: 1rem;
+    font-size: 16px;
+}
+
+.task .info > .buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.task .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.imgButton {
+    background: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.7);
+}
+
+.imgButton > img {
+    width: 100%;
+    height: 100%;
 }
