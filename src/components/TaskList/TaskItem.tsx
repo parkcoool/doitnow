@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useTask from "../../hooks/useTask";
 import Menu from "./Menu";
 
 import styles from "./styles.module.css";
@@ -23,6 +24,8 @@ function elapsedTime(date: string) {
 
 function TaskItem({ task }: TaskItemProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
+    const { removeTask } = useTask((state) => state);
 
     function handleClick() {
         setIsMenuOpen(!isMenuOpen);
@@ -33,17 +36,36 @@ function TaskItem({ task }: TaskItemProps) {
             <div className={styles.left}>
                 <span className={styles.icon}>{task.icon}</span>
                 <div className={styles.info}>
-                    <h1>{task.name}</h1>
+                    {isEditing ? (
+                        <input
+                            className={styles.taskEditBox}
+                            id={`taskEditBox${task.id}`}
+                            type="text"
+                            defaultValue={task.name}
+                        ></input>
+                    ) : (
+                        <h1>{task.name}</h1>
+                    )}
                     <h2>{elapsedTime(task.date)}</h2>
                 </div>
             </div>
             <div className={styles.right}>
-                <button className={styles.imgButton}>
-                    <img src={dotsIcon} alt="더보기" onClick={handleClick}></img>
-                </button>
+                {!isEditing && (
+                    <button className={styles.imgButton}>
+                        <img src={dotsIcon} alt="더보기" onClick={handleClick}></img>
+                    </button>
+                )}
+
                 {isMenuOpen && (
                     <Menu
                         task={task}
+                        deleteTask={() => {
+                            removeTask(task.id);
+                        }}
+                        editTask={() => {
+                            setIsMenuOpen(false);
+                            setIsEditing(true);
+                        }}
                         closeMenu={() => {
                             setIsMenuOpen(false);
                         }}

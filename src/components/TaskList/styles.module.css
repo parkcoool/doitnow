@@ -70,6 +70,16 @@
     gap: 8px;
 }
 
+.taskEditBox {
+    border: 2px solid #000000;
+    border-radius: 4px;
+    background: none;
+    font-family: Pretendard;
+    font-weight: normal;
+    font-size: 20px;
+    padding: 0;
+}
+
 .imgButton {
     background: none;
     border: none;
